@@ -1,0 +1,24 @@
+.view-tasks {
+  padding: 20px;
+  text-align: center;
+}
+
+.view-tasks ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.view-tasks li {
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.view-tasks button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}

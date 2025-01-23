@@ -1,0 +1,17 @@
+/* Styles for TaskInput component */
+.task-input {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.task-input input {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.task-input button {
+  padding: 10px 15px;
+  font-size: 16px;
+}

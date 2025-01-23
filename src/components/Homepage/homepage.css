@@ -1,0 +1,28 @@
+.homepage {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.homepage-header {
+  background-color: #f4f4f4;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  height: 50px; /* Adjust logo size as needed */
+}
+
+.homepage-body {
+  padding: 20px;
+}
+
+.homepage-footer {
+  background-color: #f4f4f4;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}

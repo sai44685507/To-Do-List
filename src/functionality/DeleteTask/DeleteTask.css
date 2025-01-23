@@ -1,0 +1,24 @@
+.delete-task {
+  padding: 20px;
+  text-align: center;
+}
+
+.delete-task ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.delete-task li {
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete-task button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}

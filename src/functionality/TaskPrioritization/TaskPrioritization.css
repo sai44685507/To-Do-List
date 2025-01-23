@@ -1,0 +1,20 @@
+.task-prioritization {
+  padding: 20px;
+  text-align: center;
+}
+
+.task-prioritization ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.task-prioritization li {
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-prioritization select {
+  margin-left: 10px;
+}
