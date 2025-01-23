@@ -6,8 +6,8 @@ import './homepage.css';
 
 const Homepage = () => {
   return (
-    <div className="homepage">
-      <Navbar />
+    <div className="Homepage">
+      <Navbar /> {/* Include Navbar in the homepage */}
       <Body />
       <Footer />
     </div>

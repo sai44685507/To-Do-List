@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addTask, deleteTask } from '../authActions'; // Adjusted import
+import { addTask, deleteTask } from '../authActions'; // Corrected import path
 import ViewTasks from '../functionality/ViewTasks/ViewTasks'; // Import ViewTasks
 import './TaskManager.css';
 

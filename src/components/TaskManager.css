@@ -1,0 +1,17 @@
+/* TaskManager.css */
+/* Add styles for TaskManager component */
+.task-manager {
+    margin: 20px;
+}
+
+.task-manager form {
+    display: flex;
+    flex-direction: column;
+}
+
+.task-manager input,
+.task-manager select,
+.task-manager button {
+    margin: 5px 0;
+    padding: 10px;
+}

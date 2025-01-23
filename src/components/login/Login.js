@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../../authActions'; // Corrected path
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import './login.css';
 
 const Login = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate(); // Initialize useNavigate
   const [usernameOrEmail, setUsernameOrEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    dispatch(login(usernameOrEmail, password));
+    const token = await dispatch(login(usernameOrEmail, password));
+    if (token) {
+      localStorage.setItem('token', token); // Store token in local storage
+      navigate('/task-manager'); // Redirect to TaskManager after login
+    }
   };
 
   return (

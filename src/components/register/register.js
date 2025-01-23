@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { register } from './authActions'; // Assuming register is an action creator
+import { register } from '../../authActions'; // Corrected path
 import './register.css';
 
 const Register = () => {
@@ -9,9 +9,12 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
-    dispatch(register({ name, email, password }));
+    const token = await dispatch(register({ name, email, password }));
+    if (token) {
+      localStorage.setItem('token', token); // Store token in local storage
+    }
   };
 
   return (

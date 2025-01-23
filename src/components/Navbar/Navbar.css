@@ -2,8 +2,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #f4f4f4;
+  background-color: #eaeaea;/* Added missing semicolon */
   padding: 20px;
+  width: 100%;
+  padding: 20px;
+  margin: 20px 0px;
 }
 
 .logo {
@@ -14,4 +17,11 @@
   margin-left: 20px;
   text-decoration: none;
   color: #333;
+  cursor: pointer;
+  border: none;
+}
+
+.nav-links a:hover{
+  border-bottom: 3px solid red;
+  font-weight: 200;
 }
