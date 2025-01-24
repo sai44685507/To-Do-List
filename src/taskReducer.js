@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const initialState = {
     tasks: [], // Initialize tasks as an empty array
   };
