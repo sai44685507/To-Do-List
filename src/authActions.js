@@ -5,46 +5,22 @@ export const REGISTER = 'REGISTER';
 export const login = (usernameOrEmail, password) => {
   return (dispatch) => {
     // Simulate authentication
-    if (usernameOrEmail === 'user' && password === 'password') {
-      const token = 'your_token_id'; // Simulated token
-      localStorage.setItem('token', token); // Store token in local storage
-      dispatch({ type: LOGIN }); // Dispatch LOGIN action
-      return token; // Return the token
-    } else {
-      alert('Invalid credentials'); // Handle invalid login attempt
-    }
+    const token = "mockToken"; // Replace with actual token logic
+    localStorage.setItem('token', token); // Store token in local storage
+    dispatch({ type: LOGIN, payload: { usernameOrEmail, token } });
   };
 };
 
 export const logout = () => {
   localStorage.removeItem('token'); // Remove token from local storage
-  return {
-    type: LOGOUT,
-  };
+  return { type: LOGOUT };
 };
 
-export const register = (userData) => {
+export const register = (username, email, password) => {
   return (dispatch) => {
-    // Simulate registration process
-    console.log('Registering user:', userData);
-    const token = 'your_token_id'; // Simulated token for registration
+    // Simulate registration
+    const token = "mockToken"; // Replace with actual token logic
     localStorage.setItem('token', token); // Store token in local storage
-    dispatch({ type: REGISTER, payload: userData }); // Dispatch REGISTER action
-    return token; // Return the token
-  };
-};
-
-// New functions for task management
-export const addTask = (task) => {
-  return {
-    type: 'ADD_TASK',
-    payload: task,
-  };
-};
-
-export const deleteTask = (index) => {
-  return {
-    type: 'DELETE_TASK',
-    payload: index,
+    dispatch({ type: REGISTER, payload: { username, email, token } });
   };
 };
