@@ -1,8 +1,83 @@
+/* Footer Common Styles */
 .footer {
-  background-color: #f4f4f4;
-  padding: 10px;
+  background-color: #333;
+  color: white;
   text-align: center;
-  position: fixed;
+  padding: 20px;
+  margin: 10px;
+  position: absolute; /* Ensure footer sticks to the bottom of the page */
+  left: 50%; /* Move the footer to the center horizontally */
+  right: 50%;
   bottom: 0;
-  width: 100%;
+  width: 90%; /* Make the footer take 80% of the screen width */
+  transform: translateX(-50%); /* Center the footer using translate */
+  font-size: 14px;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer a {
+  color: #4caf50;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Media Queries */
+
+/* For Tablets and Larger Phones (Max-width: 768px) */
+@media (max-width: 768px) {
+  .footer {
+    font-size: 12px;
+    padding: 15px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .footer a {
+    font-size: 14px;
+  }
+}
+
+/* For Small Phones (Max-width: 480px) */
+@media (max-width: 480px) {
+  .footer {
+    font-size: 10px;
+    padding: 10px;
+  }
+
+  .footer-content p {
+    margin: 5px 0;
+  }
+
+  .footer a {
+    font-size: 12px;
+  }
+}
+
+/* For Extra Small Screens (Max-width: 360px) */
+@media (max-width: 360px) {
+  .footer {
+    font-size: 9px;
+    padding: 8px;
+  }
+
+  .footer-content p {
+    margin: 4px 0;
+  }
+
+  .footer a {
+    font-size: 10px;
+  }
 }

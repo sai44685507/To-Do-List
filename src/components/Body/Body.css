@@ -1,5 +1,59 @@
+/* Body Container */
 .body {
+  background-color: #f4f4f4; /* Light background color */
   padding: 20px;
-  text-align: center;
-  font-family: Arial, sans-serif;
+  text-align: center; /* Center align text */
+  margin-top: 100px; /* To give space between navbar and body */
+  width: 90%; /* Make the body take 90% of the screen width */
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  top: 100px;
+  border-radius: 10px; /* Slightly rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for a soft look */
+}
+
+.body h1 {
+  font-size: 2rem; /* Large heading */
+  color: #333; /* Dark color for the heading */
+  font-weight: bold;
+}
+
+.body p {
+  font-size: 1.2rem; /* Slightly larger font for the paragraph */
+  color: #555; /* Light gray for the text */
+  line-height: 1.5;
+  margin-top: 20px;
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+  .body {
+    width: 95%; /* Body width adjusted for smaller screens */
+    padding: 15px; /* Reduce padding */
+    margin-top: 80px; /* Adjust margin top for better spacing */
+  }
+
+  .body h1 {
+    font-size: 1.8rem; /* Slightly smaller heading on mobile */
+  }
+
+  .body p {
+    font-size: 1rem; /* Adjust paragraph font size */
+  }
+}
+
+@media (max-width: 480px) {
+  .body {
+    width: 95%; /* Ensure body takes almost full width on small devices */
+    padding: 10px; /* Further reduce padding */
+  }
+
+  .body h1 {
+    font-size: 1.5rem; /* Smaller heading for very small devices */
+  }
+
+  .body p {
+    font-size: 0.9rem; /* Adjust paragraph font size further */
+  }
 }

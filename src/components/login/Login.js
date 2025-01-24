@@ -1,38 +1,76 @@
+// import React, { useState } from 'react';
+// import { useDispatch } from 'react-redux';
+// import { login } from '../../authActions'; // Corrected path
+// import { useNavigate } from 'react-router-dom'; // Import for navigation
+// import './login.css';
+
+// const Login = () => {
+//   const [usernameOrEmail, setUsernameOrEmail] = useState('');
+//   const [password, setPassword] = useState('');
+//   const dispatch = useDispatch();
+//   const navigate = useNavigate();
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     dispatch(login(usernameOrEmail, password));
+//     navigate('/user-dashboard'); // Redirect to homepage after login
+
+//   };
+
+//   return (
+//     <form className="login-form" onSubmit={handleSubmit}>
+//       <input
+//         type="text"
+//         placeholder="Username or Email"
+//         value={usernameOrEmail}
+//         onChange={(e) => setUsernameOrEmail(e.target.value)}
+//         required
+//       />
+//       <input
+//         type="password"
+//         placeholder="Password"
+//         value={password}
+//         onChange={(e) => setPassword(e.target.value)}
+//         required
+//       />
+//       <button type="submit">Login</button>
+//     </form>
+//   );
+// };
+
+// export default Login;
+
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../../authActions'; // Corrected path
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 import './login.css';
 
 const Login = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate(); // Initialize useNavigate
   const [usernameOrEmail, setUsernameOrEmail] = useState('');
   const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const token = await dispatch(login(usernameOrEmail, password));
-    if (token) {
-      localStorage.setItem('token', token); // Store token in local storage
-      navigate('/task-manager'); // Redirect to TaskManager after login
-    }
+    dispatch(login(usernameOrEmail, password, navigate)); // Pass navigate to the action
   };
 
   return (
-    <form onSubmit={handleLogin} className="login-form">
+    <form className="login-form" onSubmit={handleSubmit}>
       <input
         type="text"
+        placeholder="Username or Email"
         value={usernameOrEmail}
         onChange={(e) => setUsernameOrEmail(e.target.value)}
-        placeholder="Username or Email"
         required
       />
       <input
         type="password"
+        placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        placeholder="Password"
         required
       />
       <button type="submit">Login</button>
@@ -41,3 +79,4 @@ const Login = () => {
 };
 
 export default Login;
+

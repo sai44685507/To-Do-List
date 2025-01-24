@@ -2,24 +2,54 @@
 .register-form {
   display: flex;
   flex-direction: column;
-  max-width: 300px;
-  margin: auto;
+  justify-content: center; /* Center form content vertically */
+  align-items: center; /* Center form content horizontally */
+  max-width: 300px; /* Limit the form's maximum width */
+  width: 90%; /* Make form responsive */
+  margin: 50px auto; /* Center the form horizontally with top margin */
+  
+  padding: 20px;
+  background-color: #fff; /* White background for the form */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for form */
 }
 
+/* Styling for input fields inside the form */
 .register-form input {
   padding: 10px;
   margin: 5px 0;
   font-size: 16px;
+  width: 100%; /* Make the input fields take full width of the form */
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
+/* Styling for the button */
 .register-form button {
   padding: 10px;
-  background-color: #28a745;
+  background-color: #28a745; /* Green background color */
   color: white;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
+  width: 100%; /* Button takes full width */
 }
 
 .register-form button:hover {
-  background-color: #218838;
+  background-color: #218838; /* Darker green on hover */
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .register-form {
+    width: 90%; /* Increase width on smaller screens */
+    margin-top: 80px; /* Add margin from the top */
+  }
+}
+
+@media (max-width: 480px) {
+  .register-form {
+    width: 95%; /* Ensure form width is appropriate for smaller devices */
+    margin-top: 60px; /* Adjust margin from the top */
+  }
 }

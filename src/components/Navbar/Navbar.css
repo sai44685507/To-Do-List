@@ -1,27 +1,81 @@
+/* Navbar Container */
+/* Navbar Styles */
 .navbar {
+  background-color: #333; /* Dark background similar to Bootstrap */
+  padding: 10px 20px; /* Add padding for space around the navbar */
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Spread the content across the navbar */
   align-items: center;
-  background-color: #eaeaea;/* Added missing semicolon */
-  padding: 20px;
-  width: 100%;
-  padding: 20px;
-  margin: 20px 0px;
+  width: 90%; /* Make the navbar take 90% of the screen width */
+  margin: 0;
+  position: fixed; /* Fix navbar to the top */
+  top: 0;
+  left: 50%;
+  right: 50%;
+  margin: 10px;
+  transform: translateX(-50%); /* Center the navbar horizontally */
+  z-index: 1000; /* Ensure navbar stays on top */
 }
 
-.logo {
-  height: 50px; /* Adjust logo size as needed */
+.navbar .logo {
+  height: 40px; /* Adjust logo height */
+}
+
+.navbar h1 {
+  color: white;
+  font-size: 1.5rem;
+  margin: 0;
+  font-weight: bold;
+  flex-grow: 1; /* Allow h1 to grow and push the nav links to the right */
+}
+
+.nav-links {
+  display: flex;
+  gap: 15px; /* Space between links */
 }
 
 .nav-links a {
-  margin-left: 20px;
+  color: white;
   text-decoration: none;
-  color: #333;
-  cursor: pointer;
-  border: none;
+  font-size: 1rem;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease, border-bottom 0.3s ease; /* Smooth transition for hover effect */
 }
 
-.nav-links a:hover{
-  border-bottom: 3px solid red;
-  font-weight: 200;
+/* Hover effect with border-bottom */
+.nav-links a:hover {
+  background-color: #4caf50; /* Green background on hover */
+  color: white; /* White text on hover */
+  border-bottom: 2px solid white; /* White border at the bottom */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px; /* Add more padding for smaller screens */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: flex-start; /* Align items to the start */
+  }
+
+  .nav-links {
+    width: 100%; /* Make nav-links take full width */
+    justify-content: space-around; /* Spread links evenly */
+    margin-top: 10px;
+  }
+
+  .nav-links a {
+    padding: 12px 20px; /* Increase padding on smaller screens */
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar h1 {
+    font-size: 1.2rem; /* Smaller font size for small devices */
+  }
+
+  .nav-links a {
+    padding: 10px 15px; /* Adjust padding for small screens */
+  }
 }

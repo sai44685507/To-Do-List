@@ -1,53 +1,45 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addTask, deleteTask } from '../authActions'; // Corrected import path
-import ViewTasks from '../functionality/ViewTasks/ViewTasks'; // Import ViewTasks
+import { useSelector } from 'react-redux'; // Import useSelector for accessing state
 import './TaskManager.css';
 
 const TaskManager = () => {
-  const [task, setTask] = useState('');
-  const [priority, setPriority] = useState('');
-  const dispatch = useDispatch();
-  const tasks = useSelector((state) => state.tasks);
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated); // Access authentication state
+  const tasks = useSelector((state) => state.tasks); // Assuming tasks are stored in the Redux state
+  const [selectedOption, setSelectedOption] = useState('');
 
-  const handleAddTask = (newTask) => {
-    dispatch(addTask(newTask));
-  };
+  if (!isAuthenticated) {
+    return <div>Please log in to view your tasks.</div>; // Message for unauthenticated users
+  }
 
-  const handleDeleteTask = (index) => {
-    dispatch(deleteTask(index)); // Dispatch delete action
+  const handleSelectChange = (event) => {
+    const selectedValue = event.target.value;
+    if (selectedValue === 'add') {
+        window.location.href = '/add-task'; // Example URL for Add Task
+    } else if (selectedValue === 'view') {
+        window.location.href = '/view-tasks'; // Example URL for View Tasks
+    } else if (selectedValue === 'delete') {
+        window.location.href = '/delete-task'; // Example URL for Delete Task
+    } else if (selectedValue === 'dashboard') {
+        window.location.href = '/user-dashboard'; // Navigate to User Dashboard
+    }
+    setSelectedOption(selectedValue);
   };
 
   return (
-    <div>
-      <form onSubmit={(e) => {
-        e.preventDefault();
-        if (task && priority) {
-          handleAddTask({ task, priority });
-          setTask('');
-          setPriority('');
-        }
-      }}>
-        <input
-          type="text"
-          value={task}
-          onChange={(e) => setTask(e.target.value)}
-          placeholder="Add a new task"
-          required
-        />
-        <select
-          value={priority}
-          onChange={(e) => setPriority(e.target.value)}
-          required
-        >
-          <option value="">Select Priority</option>
-          <option value="High">High</option>
-          <option value="Medium">Medium</option>
-          <option value="Low">Low</option>
-        </select>
-        <button type="submit">Add Task</button>
-      </form>
-      <ViewTasks tasks={tasks} onDelete={handleDeleteTask} />
+    <div className="task-manager">
+      <h2>Your Tasks</h2>
+      <select onChange={handleSelectChange} value={selectedOption}>
+        <option value="">Select an option</option>
+        <option value="add">Add Task</option>
+        <option value="view">View Tasks</option>
+        <option value="delete">Delete Task</option>
+        <option value="dashboard">User Dashboard</option> {/* Added option for User Dashboard */}
+      </select>
+      <ul>
+        {tasks.map((task, index) => (
+          <li key={index}>{task}</li>
+        ))}
+      </ul>
     </div>
   );
 };
